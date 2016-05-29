@@ -37,16 +37,7 @@ router.put('/:id', function (req, res) {
   });
 });
 
-router.delete('/:id', function (req, res) {
-  Pet.findByIdAndRemove(req.params.id, function (err) {
-    if (err) {
-      res.sendStatus(500);
-      return;
-    }
 
-    res.sendStatus(204);
-  });
-});
 
 router.put('/:id/comments', function (req, res) {
   var id = req.params.id;

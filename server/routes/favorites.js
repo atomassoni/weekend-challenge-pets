@@ -13,4 +13,15 @@ router.get('/', function (req, res) {
   });
 });
 
+router.delete('/:id', function (req, res) {
+  Pet.findByIdAndRemove(req.params.id, function (err) {
+    if (err) {
+      res.sendStatus(500);
+      return;
+    }
+
+    res.sendStatus(204);
+  });
+});
+
 module.exports = router;

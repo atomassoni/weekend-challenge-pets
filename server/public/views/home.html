@@ -5,7 +5,7 @@
 <div>
 
 
-      <button>get random</button>
+      <button ng-click="getRandomPet()">get random</button>
 
       <select ng-options="type for type in types" ng-model="selectedType" ng-change="getRandomPet()">
     </select>

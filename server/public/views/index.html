@@ -16,15 +16,13 @@
     <script type="text/javascript" src="/scripts/controllers/homeController.js"></script>
     <script type="text/javascript" src="/scripts/controllers/favoritesController.js"></script>
 
-    <body ng-app="myApp">
+    <body ng-app="myApp" class="container">
 
-        <header ng-include="'/views/templates/header.html'" class="u-full-width"></header>
+        <header ng-include="'/views/templates/header.html'" ></header>
         <div ng-include="'/views/templates/nav.html'"></div>
-        <div class="container">
-            <main ng-view></main>
-        </div>
 
-        <footer ng-include="'/views/templates/footer.html'"></footer>
+            <main ng-view></main>
+        <footer ng-include="'/views/templates/footer.html'" ></footer>
     </body>
 
 </html>

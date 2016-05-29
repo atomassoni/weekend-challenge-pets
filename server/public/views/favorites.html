@@ -1,27 +1,27 @@
 
-<div class="container">
+
 
 <div class="row">
 
   <div class="nine columns">
+    <h3><span>	&hearts; {{numFavorites}} &hearts;</span></h3>
     <table class="u-full-width">
   <thead>
     <tr>
-      <th>Pet ID</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Type</th>
+      <th></th>
+
+      <th></th>
+
       <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="pet in favorites" ng-click="getPet(pet.petId)">
-      <td>{{pet.petId}}</td>
-      <td>{{pet.name}}</td>
-      <td ng-if="fullDescription && pet.petId==thisPet">{{fullDescription}}</td>
-      <td ng-if="!fullDescription">{{pet.description}}...</td>
-      <td>{{pet.animalType}}</td>
-      <td><img ng-src="{{pet.imageUrl}}" description="{{pet.name}}"/></td>
+    <tr ng-repeat="pet in favorites">
+      <td> <img ng-src="{{pet.imageUrl}}" description="{{pet.name}}"/></td>
+
+      <td><em>{{pet.petId}}</em> <h5>A {{pet.animalType}} named {{pet.name}} </h5> {{pet.description}}...</td>
+
+      <td><button ng-click="deleteFavorite(pet._id)">remove from favorites</button></td>
     </tr>
 
   </tbody>
@@ -33,5 +33,4 @@
   </div>
 
 
-</div>
 </div>

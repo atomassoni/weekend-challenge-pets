@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 var descriptionFilter = require('../modules/description-filter');
 
 var DescriptionSchema = new Schema({
-  description: { type: String, required: true },
+  longDescription: { type: String, required: true },
+  shortDescription: { type: String, required: true },
 
 });
 
