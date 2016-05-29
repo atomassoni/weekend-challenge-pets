@@ -1,12 +1,14 @@
 myApp.controller('FavoritesController', ['$scope', '$http', function($scope, $http) {
   var key = '5433d627c0c62b99a9af9fbbe4227a02';
   var baseURL = 'http://api.petfinder.com/';
-$scope.favorites = {};
+$scope.favorites = [];
 $scope.fullDescription = '';
 $scope.numFavorites = '';
+
 //$scope.thisPet = '';
-getNumFavorites();
+
 getFavorites();
+getNumFavorites();
 
 // $scope.getPet = function (petId) {
 // console.log(petId);
@@ -33,27 +35,31 @@ getFavorites();
     if (confirm("Remove favorite?")){
     $http.delete('/favorites/' + id)
       .then(function (response) {
-        console.log('DELETE /pets', id);
+
         getFavorites();
+        getNumFavorites();
+
       });
     }
   };
-
+//gets all the favorites
   function getFavorites() {
     $http.get('/favorites')
       .then(function (response) {
-
         $scope.favorites = response.data;
         console.log('GET /favorites ', response.data);
-
       });
   }
-
+//gets the number of favorites from the databases
   function getNumFavorites () {
     $http.get('/pets')
       .then(function (response) {
         $scope.numFavorites = response.data.numFavorites;
+        console.log('GET /pets ', response.data);
       });
   }
+
+
+
 
 }]);

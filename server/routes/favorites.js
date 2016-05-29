@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Pet = require('../models/pet');
 
+//gets all the favorited pets
 router.get('/', function (req, res) {
   Pet.find({}, function (err, pets) {
     if (err) {

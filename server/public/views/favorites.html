@@ -6,7 +6,7 @@
   <div class="nine columns">
     <h3><span>	&hearts; {{numFavorites}} &hearts;</span></h3>
     <table class="u-full-width">
-  <thead>
+  <thead >
     <tr>
       <th></th>
 
@@ -16,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="pet in favorites">
+    <tr ng-repeat="pet in favorites | orderBy: 'animalType'">
       <td> <img ng-src="{{pet.imageUrl}}" description="{{pet.name}}"/></td>
 
       <td><em>{{pet.petId}}</em> <h5>A {{pet.animalType}} named {{pet.name}} </h5> {{pet.description}}...</td>
