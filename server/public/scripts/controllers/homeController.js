@@ -6,7 +6,14 @@ myApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
 
   $scope.animal = [];
   $scope.breed = '';
-  $scope.types = ['barnyard', 'bird', 'cat', 'dog', 'horse', 'pig', 'reptile', 'smallfurry'];
+  $scope.types = [{type: 'barnyard',label:'Barnyard Animal'},
+  {type: 'bird', label: 'Bird'},
+  {type: 'cat', label: 'Cat'},
+  {type: 'dog', label: 'Dog'},
+  {type: 'horse', label: 'Horse'},
+  {type: 'pig', label: 'Pig'},
+  {type: 'reptile', label: 'Reptile'},
+  {type: 'smallfurry', label: 'Small Furry Animal'}];
   $scope.selectedType = '';
   $scope.numFavorites = getNumFavorites();
   var petFave = {};
@@ -19,7 +26,7 @@ $scope.getRandomPet = function () {
     var query = 'pet.getRandom';
     query += '?key=' + key;
     if ($scope.selectedType){
-    query += '&animal=' + $scope.selectedType;
+    query += '&animal=' + $scope.selectedType.type;
   }
     query += '&output=basic';
     query += '&format=json';

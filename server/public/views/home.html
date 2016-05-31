@@ -7,7 +7,7 @@
 
       <button ng-click="getRandomPet()">get random</button>
 
-      <select ng-options="type for type in types" ng-model="selectedType" ng-change="getRandomPet()">
+      <select ng-options="pet.label for pet in types" ng-model="selectedType" ng-change="getRandomPet()">
     </select>
 </div>
 <h2>{{animal.name.$t}}</h2>
@@ -17,7 +17,8 @@
 
 
 <div class="five columns">
-    <img ng-src="{{animal.media.photos.photo[3].$t}}" alt="random_pet_pictures" />
+
+    <img ng-if="animal.media.photos.photo[3].$t" ng-src="{{animal.media.photos.photo[3].$t}}" alt="{{animal.media.photos.photo[3].$t}}" />
     <button ng-click="addFavorite()">Add To Favorites</button>
     <span>	&hearts; {{numFavorites}} &hearts;</span>
 
