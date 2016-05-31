@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 //var DescriptionSchema = require('./description').schema;
 
 var PetSchema = new Schema({
-  petId: { type: String, required: true, unique: true},
+  petId: { type: String, required: true, index: {unique: true} },
   name: { type: String, required: true },
   imageUrl: { type: String, required: true },
   description: { type: String, required: true },
