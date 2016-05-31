@@ -4,7 +4,7 @@ myApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
   var key = '5433d627c0c62b99a9af9fbbe4227a02';
   var baseURL = 'http://api.petfinder.com/';
 
-
+  $scope.animal = [];
   $scope.breed = '';
   $scope.types = ['barnyard', 'bird', 'cat', 'dog', 'horse', 'pig', 'reptile', 'smallfurry'];
   $scope.selectedType = '';
@@ -44,7 +44,7 @@ $scope.addFavorite = function () {
   petFave.petId = $scope.animal.id.$t;
   petFave.name = $scope.animal.name.$t;
   petFave.imageUrl = $scope.animal.media.photos.photo[3].$t;
-  petFave.description = desc ? desc.substr(0,100) : 'No description';
+  petFave.description = desc ? desc : 'No description';
   petFave.animalType = $scope.animal.animal.$t;
   $http.post('/pets', petFave)
     .then(function () {
